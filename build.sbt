@@ -5,7 +5,7 @@ gitCommitHash := Process("git rev-parse HEAD").lineStream.head
 val gitCommitDate =  settingKey[String]("The git commit date")
 gitCommitDate := Process("git log -1  --pretty=format:%cd --date=format:%Y%m%d").lineStream.head
 val gitBranch = settingKey[String]("The git branch")
-gitBranch := Process("git rev-parse --abbrev-ref HEAD").lineStream.head
+gitBranch := Process("git rev-parse --abbrev-ref HEAD").lineStream.head.replaceAll("/", "-")
 val shortVersion = settingKey[String]("The short version string")
 shortVersion := gitCommitDate.value
 val longVersion = settingKey[String]("The long version string")
