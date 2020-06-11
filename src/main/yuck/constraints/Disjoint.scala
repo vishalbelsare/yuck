@@ -53,7 +53,7 @@ abstract class Disjoint
                 buf += i
                 map
         }
-        .map{case (x, buf) => (x, buf.toIndexedSeq)}
+        .map{case (x, buf) => (x, buf.to(immutable.ArraySeq))}
         .toMap
 
     private val effect = new ReusableMoveEffectWithFixedVariable(costs)

@@ -54,7 +54,7 @@ abstract class Table
                     buf += i
                     map
             }
-            .map{case (x, buf) => (x, buf.toIndexedSeq)}
+            .map{case (x, buf) => (x, buf.to(immutable.ArraySeq))}
             .toMap
         } else {
             null
